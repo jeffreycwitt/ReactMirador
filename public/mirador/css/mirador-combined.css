@@ -2699,11 +2699,6 @@ See http://bgrins.github.io/spectrum/themes/ for instructions.
     background-image: url(data:image/gif;base64,R0lGODlhFAAUAPcAAAAAAJmZmZ2dnZ6enqKioqOjo6SkpKWlpaampqenp6ioqKmpqaqqqqurq/Hx8fLy8vT09PX19ff39/j4+Pn5+fr6+vv7+wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAP8ALAAAAAAUABQAAAihAP9FoPCvoMGDBy08+EdhQAIJCCMybCDAAYUEARBAlFiQQoMABQhKUJBxY0SPICEYHBnggEmDKAuoPMjS5cGYMxHW3IiT478JJA8M/CjTZ0GgLRekNGpwAsYABHIypcAgQMsITDtWJYBR6NSqMico9cqR6tKfY7GeBCuVwlipDNmefAtTrkSzB1RaIAoXodsABiZAEFB06gIBWC1mLVgBa0AAOw==);
 }
 
-body { 
-  padding: 0; 
-  margin: 0; 
-  overflow: hidden; 
-}
 a {
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
@@ -2787,9 +2782,9 @@ a {
   #load-controls form {
     float: none;
   }
-  
+
   #url-load-form {
-    margin-bottom: 5px; 
+    margin-bottom: 5px;
   }
 }
 
@@ -3186,7 +3181,7 @@ li.highlight {
   margin-right: 6px;
 }
 #url-load-form {
-  float: right; 
+  float: right;
 }
 #url-load-form input[type="text"] {
   width: 250px;
@@ -3201,7 +3196,7 @@ li.highlight {
   color:black;
 }
 #manifest-search-form input:focus, #url-load-form input:focus,
-#manifest-search-form input:focus, 
+#manifest-search-form input:focus,
 #url-load-form input:focus,
 #url-load-form input[type="submit"]:hover{
   outline:none;
@@ -3609,10 +3604,10 @@ li.highlight {
   font-weight: bold;
 }
 
-/* 
+/*
 .toc li:hover > h2 a {
-  font-weight: bold; 
-} 
+  font-weight: bold;
+}
 */
 .view-container {
   margin-left: 280px;
@@ -3860,11 +3855,22 @@ li.highlight {
   top: 10px;
   left: 10px;
   transition: none;
+  width: 100%
 }
 .mirador-osd-context-controls a {
   float:left;
   margin:0 10px 0 0;
   font-weight: normal;
+}
+.mirador-annotation-controls {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.mirador-manipulation-controls {
+  position: absolute;
+  top: 30px;
+  left: 0px;
 }
 
 /* color picker custom style
@@ -4365,6 +4371,37 @@ ul.scroll-listing-thumbs li .thumb-label {
   top: -0.5em;
 }
 
+.hud-control .ui-slider-handle .percent {
+  position: absolute;
+  left: 17px;
+  top:-0.3em;
+  display:block;
+  color: white;
+  text-shadow: 0 0 3px black;
+}
+
+.hud-control .ui-slider, .ui-slider-vertical {
+  width: 3px;
+  margin-left: 27px;
+  margin-bottom: 20px;
+  height:100px;
+}
+
+.hud-control .ui-slider-vertical .ui-slider-handle {
+  width: 0.7em;
+  height: 0.7em;
+  border-radius: 40px;
+  margin-bottom: -.35em;
+}
+
+.hud-control .ui-slider-vertical .ui-slider-handle:focus {
+  outline:0;
+}
+
+.hud-control .ui-slider-range {
+  background: deepSkyBlue;
+}
+
 /* metadata view
 ---------------------------------------------------------------------------- */
 
@@ -4533,10 +4570,10 @@ a.mirador-icon-window-menu, a.mirador-icon-view-type {
   width: 30px;
 }
 
-.mirador-viewer a.mirador-icon-view-type:hover, 
-.mirador-viewer a.mirador-icon-metadata-view:hover, 
-.mirador-viewer a.mirador-icon-empty-slot:hover, 
-.mirador-viewer a.mirador-icon-window-menu:hover, 
+.mirador-viewer a.mirador-icon-view-type:hover,
+.mirador-viewer a.mirador-icon-metadata-view:hover,
+.mirador-viewer a.mirador-icon-empty-slot:hover,
+.mirador-viewer a.mirador-icon-window-menu:hover,
 .mirador-viewer a.mirador-icon-toc:hover,
 .mirador-viewer a.mirador-osd-fullscreen:hover {
   color: black;
