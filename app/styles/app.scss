@@ -6,7 +6,7 @@ p {
 }
 .panel-wrapper{}
 .side-panel-wrapper {
-	background-color: lightgray;	
+	background-color: lightgray;
 	float:left;
 	width: 29%;
 	height: 100%;
@@ -18,23 +18,35 @@ p {
 }
 .mirador-panel-wrapper {
 	background-color: lightblue;
-	// change back to 70 when side panel is added 
-	//width: 70%;
-	width: 100%;
+	// change back to 70 when side panel is added
+	width: 70%;
+	//width: 100%;
 	height: 100%;
 	float: left;
 }
+
+//.mirador-viewer{
+//	left: 29%;
+//	width: 70%;
+//}
 #viewer{
+	position: fixed;
 	height:100%;
-	// change back to 70 when side panel is added 
-	//width: 70%
-	width: 100%;
+	// change back to 70 when side panel is added
+	width: 70%
+  //width: 100%;
 }
-.viewer {
-	height:100%;
+//.viewer {
+	//height:100%;
 	//width: 70%
-	width: 100%;
-}
+	//width: 100%;
+//}
 #search-input {
 	width: 100%;
+}
+
+li.expression-link {
+	color: blue;
+	list-style: none;
+	line-height: 200%;
 }

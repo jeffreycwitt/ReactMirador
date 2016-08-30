@@ -1,5 +1,6 @@
 var React = require("react");
 //var Mirador = require("Mirador");
+var ReactDOM = require("react-dom");
 
 var MiradorPanel = React.createClass({
 	componentWillMount: function(){
@@ -7,28 +8,43 @@ var MiradorPanel = React.createClass({
 		_this.createMiradorInstance();
 
 	},
-	componentWillUpdate: function(){
-		console.log(this);
 
+	componentDidUpdate: function(){
+		var $node = $(ReactDOM.findDOMNode(this))
+		$node.children('div').remove();
+		$node.append('<div id="viewer"></div>');
+			
+		this.createMiradorInstance();
 	},
 	createMiradorInstance: function(){
 		var _this = this;
+		console.log(this.props.expressionid);
+
+
+
+
 		$(function(){
 				Mirador({
 	      	"id": "viewer",
 	      	"layout": "1x1",
 	      	'openManifestsPage' : true,
+					"buildPath": "/mirador/",
 	      	"data" : [
 	      		{collectionUri : "http://scta.info/iiif/" + _this.props.expressionid + "/collection" }
 	      	]
 	      });
 	    });
 	},
-	
+
 
 	render: function(){
 		return(
-			<div id="viewer"></div>
+			<div>
+				<div id="viewer"
+				></div>
+			</div>
+
+
 		)
 	}
 });

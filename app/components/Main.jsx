@@ -7,13 +7,15 @@ var Main = (props) => {
 	var expressionid = props.params.expressionid;
 	return(
 		<div className='panel-wrapper'>
-			
+			<div className="side-panel-wrapper">
+				<SidePanel/>
+			</div>
 			<div className="mirador-panel-wrapper">
 				<MiradorPanel expressionid={expressionid}/>
 			</div>
-			
+
 		</div>
-			
+
 		);
 }
 
@@ -31,9 +33,7 @@ module.exports = Main;
 			</div>
 			*/
 
-/** cut from 
-<div className="side-panel-wrapper">
-				<SidePanel/>
-			</div>
+/** cut from
+c
 
 **/
