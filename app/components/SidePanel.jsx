@@ -7,7 +7,7 @@ var SidePanel = React.createClass({
 	render: function(){
 		return(
 			<div>
-				<SearchForm/>
+
 				<SearchResults/>
 			</div>
 			)
@@ -15,3 +15,5 @@ var SidePanel = React.createClass({
 })
 
 module.exports = SidePanel;
+
+//<SearchForm/>

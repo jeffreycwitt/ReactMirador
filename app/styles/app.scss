@@ -6,11 +6,24 @@ p {
 }
 .panel-wrapper{}
 .side-panel-wrapper {
-	background-color: lightgray;
+	//background-color: lightgray;
 	float:left;
 	width: 29%;
 	height: 100%;
 	//overflow: scroll;
+
+
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e2e2e2+0,dbdbdb+16,d1d1d1+42,fefefe+100 */
+background: rgb(226,226,226); /* Old browsers */
+background: -moz-linear-gradient(left,  rgba(226,226,226,1) 0%, rgba(219,219,219,1) 16%, rgba(209,209,209,1) 42%, rgba(254,254,254,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left,  rgba(226,226,226,1) 0%,rgba(219,219,219,1) 16%,rgba(209,209,209,1) 42%,rgba(254,254,254,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right,  rgba(226,226,226,1) 0%,rgba(219,219,219,1) 16%,rgba(209,209,209,1) 42%,rgba(254,254,254,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe',GradientType=1 ); /* IE6-9 */
+
+border-left: 5px solid black;
+border-top: 5px  solid black;
+border-bottom: 6px solid black;
+
 }
 .search-results{
 	overflow: scroll;
@@ -46,7 +59,7 @@ p {
 }
 
 li.expression-link {
-	color: blue;
+	color: black;
 	list-style: none;
 	line-height: 200%;
 }

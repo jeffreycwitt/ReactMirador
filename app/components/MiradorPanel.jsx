@@ -13,7 +13,7 @@ var MiradorPanel = React.createClass({
 		var $node = $(ReactDOM.findDOMNode(this))
 		$node.children('div').remove();
 		$node.append('<div id="viewer"></div>');
-			
+
 		this.createMiradorInstance();
 	},
 	createMiradorInstance: function(){
@@ -25,7 +25,7 @@ var MiradorPanel = React.createClass({
 
 		$(function(){
 				Mirador({
-	      	"id": "viewer",
+		      	"id": "viewer",
 	      	"layout": "1x1",
 	      	'openManifestsPage' : true,
 					"buildPath": "/mirador/",
