@@ -21,7 +21,8 @@ var MiradorPanel = React.createClass({
 		console.log(this.props.expressionid);
 
 
-
+		var collectionurl = "http://localhost:3000/iiif/" + _this.props.expressionid + "/collection2"
+		console.log(collectionurl)
 
 		$(function(){
 				Mirador({
@@ -31,6 +32,7 @@ var MiradorPanel = React.createClass({
 					"buildPath": "/mirador/",
 	      	"data" : [
 	      		{collectionUri : "http://scta.info/iiif/" + _this.props.expressionid + "/collection" }
+						//{collectionUri : collectionurl}
 	      	]
 	      });
 	    });

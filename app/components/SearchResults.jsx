@@ -83,11 +83,6 @@ var SearchResults = React.createClass({
 		_this.setAuthorResults(authorQuery);
 		_this.setTextResults(textQuery);
 
-
-
-
-
-
 	},
 
 	render: function(){

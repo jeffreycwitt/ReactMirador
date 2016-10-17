@@ -4,11 +4,11 @@ var SearchResults = require("SearchResults");
 
 var SidePanel = React.createClass({
 
+
 	render: function(){
 		return(
 			<div>
-
-				<SearchResults/>
+			<SearchResults/>
 			</div>
 			)
 	}
