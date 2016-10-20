@@ -8,7 +8,7 @@ var Main = (props) => {
 	return(
 		<div className='panel-wrapper'>
 			<div className="side-panel-wrapper">
-				<SidePanel/>
+				<SidePanel expressionid={expressionid}/>
 			</div>
 			<div className="mirador-panel-wrapper">
 				<MiradorPanel expressionid={expressionid}/>
