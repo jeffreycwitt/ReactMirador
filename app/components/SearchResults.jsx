@@ -3,48 +3,15 @@ var sctaData = require("sctaData");
 var {Link, IndexLink} = require("react-router");
 
 var textQuery = [
-			"select ?topLevelExpression ?topLevelExpressionTitle ?author ?authorTitle",
-			"where {",
+			"SELECT ?author ?author_title ?topLevelExpression ?topLevelExpressionTitle WHERE {",
 			"?topLevelExpression a <http://scta.info/resource/expression> .",
 			"?topLevelExpression <http://scta.info/property/level> '1' .",
 			"?topLevelExpression <http://purl.org/dc/elements/1.1/title> ?topLevelExpressionTitle .",
 			"?topLevelExpression <http://www.loc.gov/loc.terms/relators/AUT> ?author .",
-			"?author <http://scta.info/property/personType> ?authorTitle .",
+			"?author <http://purl.org/dc/elements/1.1/title> ?author_title .",
 			"}",
-			"ORDER BY ?authorTitle",
+			"ORDER BY ?author_title",
 		].join('');
-
-// var authorQuery = [
-// 					"select ?topLevelExpression ?author ?authorTitle",
-// 					"where {",
-// 					"?topLevelExpression a <http://scta.info/resource/expression> .",
-// 					"?topLevelExpression <http://scta.info/property/level> '1' .",
-// 					"?topLevelExpression <http://www.loc.gov/loc.terms/relators/AUT> ?author .",
-// 					"?author <http://scta.info/property/personType> ?authorTitle .",
-// 					"}",
-// 					"ORDER BY ?authorTitle",
-// 				].join('');
-
-//getExpressionInfo: function(expressionid){
-					//var expressionQuery = [
-						//"select ?resource_title ?resource_child ?resource_child_title ?resource_child_short_id ?resource_parent ?resource_parent_title ?resource_parent_short_id",
-					//"where {",
-					//"<http://scta.info/resource/plaoulcommentary> <http://purl.org/dc/elements/1.1/title> ?resource_title .",
-					// "OPTIONAL {",
-					// "<http://scta.info/resource/plaoulcommentary> <http://purl.org/dc/terms/isPartOf> ?resource_parent .",
-					// "?resource_parent <http://purl.org/dc/elements/1.1/title> ?resource_parent_title .",
-					// "?resource_parent <http://scta.info/property/shortId> ?resource_parent_short_id .",
-					// "}",
-					// "OPTIONAL {",
-					// "<http://scta.info/resource/plaoulcommentary> <http://purl.org/dc/terms/hasPart> ?resource_child .",
-					// "?resource_child <http://purl.org/dc/elements/1.1/title> ?resource_child_title .",
-					// "?resource_child <http://scta.info/property/shortId> ?resource_child_short_id .",
-					// "}",
-				//	"}",
-				//	].join('');
-
-					//return query
-				//}
 
 var SearchResults = React.createClass({
 	getInitialState: function(){
@@ -66,25 +33,32 @@ var SearchResults = React.createClass({
 					var bindings = resp2.results.bindings;
 					if (bindings[i].author.value.split("/").pop(-1) === authorid){
 						var shortid = bindings[i].topLevelExpression.value.split("/").pop(-1);
-						titles.push(<li><Link to={shortid}>{bindings[i].topLevelExpressionTitle.value}</Link></li>)
+						var collectionUrl = "http://scta.info/iiif/" + shortid + "/collection?collection=http://scta.info/iiif/" + shortid + "/collection"
+						titles.push(
+							<li className="expression-link">
+								<Link to={shortid}>{bindings[i].topLevelExpressionTitle.value}</Link>
+									<a href={collectionUrl} title="Drag and Drop this icon into Mirador"> - <img height="10" src="http://www.e-codices.unifr.ch/img/logo-iiif-34x30.png" alt="IIIF Drag-n-drop"/>
+									</a>
+							</li>
+						)
 					}
 				};
 
 				return titles
 			}
 			var currentAuthor = ""
+			console.log(resp.results.bindings);
 			resp.results.bindings.forEach(function(result){
 				var authorid = result.author.value.split("/").pop(-1)
+				var author_title = result.author_title.value
 				var shortid = result.topLevelExpression.value.split("/").pop(-1);
 				var shortid_url = "/" + shortid
 				var collectionUrl = "/default_target?collection=http://scta.info/iiif/" + shortid + "/collection";
 				// conditional used to filter out repeat entries for author of multiple works
 				if (currentAuthor != authorid){
-					console.log("authorid", authorid);
-					console.log("currentAuthor", currentAuthor)
 					displayResults.push(
-						<li className="expression-link">
-							<Link to={authorid}>{authorid}</Link>
+						<li>
+							<p>{author_title}</p>
 							<ul>
 								{getTitles(authorid, resp)}
 							</ul>

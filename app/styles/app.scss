@@ -8,15 +8,18 @@ p {
 .side-panel-wrapper {
 	//background-color: lightgray;
 	//float:left;
-	width: 19%;
+	width: 20%;
 	height: 100%;
 	position: fixed;
 	top: 0;
 	left: 0;
 	opacity: 0;
 	overflow:scroll;
+	z-index: 0;
+	margin: 0;
+	border: 0;
 
-	
+	//.box-shadow: inset 5px 5px 5px 10px rgba(0,0,0,2);
 
 
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e2e2e2+0,dbdbdb+16,d1d1d1+42,fefefe+100 */
@@ -38,14 +41,16 @@ border-bottom: 6px solid black;
 .search-results{
 	overflow: scroll;
 	font-size: 10px;
+
 }
 .mirador-panel-wrapper {
-	background-color: lightblue;
+	//background-color: lightblue;
 	// change back to 70 when side panel is added
-	width: 100%;
+	width: 99%;
 	//width: 100%;
 	height: 100%;
 	//float: left;
+	margin-left: 1%
 }
 
 //.mirador-viewer{
@@ -72,5 +77,9 @@ border-bottom: 6px solid black;
 li.expression-link {
 	color: black;
 	list-style: none;
-	line-height: 200%;
+	line-height: 150%;
+	padding-left: -20px
+}
+li.expression-link:hover{
+	text-decoration: underline;
 }
