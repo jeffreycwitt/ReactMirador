@@ -1,6 +1,8 @@
 var React = require("react");
 var SearchForm = require("SearchForm");
-var SearchResults = require("SearchResults");
+var TextList = require("TextList");
+var CodexList = require("CodexList");
+var ExpressionInfo = require("ExpressionInfo");
 
 var SidePanel = React.createClass({
 
@@ -8,7 +10,9 @@ var SidePanel = React.createClass({
 	render: function(){
 		return(
 			<div>
-			<SearchResults/>
+				<ExpressionInfo expressionid={this.props.expressionid}/>
+				<TextList/>
+				<CodexList/>
 			</div>
 			)
 	}

@@ -13,11 +13,11 @@ var textQuery = [
 			"ORDER BY ?author_title",
 		].join('');
 
-var SearchResults = React.createClass({
+var TextList = React.createClass({
 	getInitialState: function(){
 		return {
 			textResults: undefined,
-			authorResults: undefined,
+			//authorResults: undefined,
 		}
 	},
 	setTextResults: function(query){
@@ -47,7 +47,6 @@ var SearchResults = React.createClass({
 				return titles
 			}
 			var currentAuthor = ""
-			console.log(resp.results.bindings);
 			resp.results.bindings.forEach(function(result){
 				var authorid = result.author.value.split("/").pop(-1)
 				var author_title = result.author_title.value
@@ -58,7 +57,7 @@ var SearchResults = React.createClass({
 				if (currentAuthor != authorid){
 					displayResults.push(
 						<li>
-							<p>{author_title}</p>
+							{author_title}
 							<ul>
 								{getTitles(authorid, resp)}
 							</ul>
@@ -150,7 +149,7 @@ var SearchResults = React.createClass({
 		return(
 			<div>
 
-				<ul className="search-results">
+				<ul className="text-results">
 					<h1>Available Text Collections</h1>
 					{this.state.textResults}
 				</ul>
@@ -160,4 +159,4 @@ var SearchResults = React.createClass({
 	}
 })
 
-module.exports = SearchResults;
+module.exports = TextList;

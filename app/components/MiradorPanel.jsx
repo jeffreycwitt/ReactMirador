@@ -13,37 +13,43 @@ var MiradorPanel = React.createClass({
 		var $node = $(ReactDOM.findDOMNode(this))
 		$node.children('div').remove();
 		$node.append('<div id="viewer"></div>');
-
-		this.createMiradorInstance();
+		this.createMiradorInstance(this.props.type);
 	},
-	createMiradorInstance: function(){
+	createMiradorInstance: function(type){
 		var _this = this;
-		console.log(this.props.expressionid);
-
-
-		var collectionurl = "http://localhost:3000/iiif/" + _this.props.expressionid + "/collection2"
-		console.log(collectionurl)
-
-		$(function(){
-				Mirador({
-		      	"id": "viewer",
-	      	"layout": "1x1",
-	      	'openManifestsPage' : true,
-					"buildPath": "/mirador/",
-	      	"data" : [
-	      		{collectionUri : "http://scta.info/iiif/" + _this.props.expressionid + "/collection" }
-						//{collectionUri : collectionurl}
-	      	]
-	      });
-	    });
+		if (type == "manifest"){
+			$(function(){
+					Mirador({
+			      	"id": "viewer",
+		      	"layout": "1x1",
+		      	'openManifestsPage' : true,
+						"buildPath": "/mirador/",
+		      	"data" : [
+		      		{manifestUri : "http://scta.info/iiif/codex/" + _this.props.expressionid + "/manifest"}
+		      	]
+		      });
+		    });
+			}
+		else{
+			$(function(){
+					Mirador({
+			      	"id": "viewer",
+		      	"layout": "1x1",
+		      	'openManifestsPage' : true,
+						"buildPath": "/mirador/",
+		      	"data" : [
+		      		{collectionUri : "http://scta.info/iiif/" + _this.props.expressionid + "/collection"}
+		      	]
+		      });
+		    });
+			}
 	},
 
 
 	render: function(){
 		return(
 			<div>
-				<div id="viewer"
-				></div>
+				<div id="viewer"></div>
 			</div>
 
 

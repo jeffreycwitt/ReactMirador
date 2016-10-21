@@ -5,13 +5,14 @@ var MiradorPanel = require("MiradorPanel");
 
 var Main = (props) => {
 	var expressionid = props.params.expressionid;
+	var type = props.location.query.type;
 	return(
 		<div className='panel-wrapper'>
 			<div className="side-panel-wrapper">
 				<SidePanel expressionid={expressionid}/>
 			</div>
 			<div className="mirador-panel-wrapper">
-				<MiradorPanel expressionid={expressionid}/>
+				<MiradorPanel expressionid={expressionid} type={type}/>
 			</div>
 
 		</div>

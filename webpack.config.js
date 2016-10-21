@@ -5,7 +5,7 @@ module.exports = {
 	'script!jquery/dist/jquery.min.js',
 	//'script!foundation-sites/dist/foundation.min.js',
 	'./app/app.jsx',
-	
+
 	],
 	externals: {
 		jquery: 'jQuery',
@@ -27,7 +27,9 @@ module.exports = {
 			Main: "app/components/Main.jsx",
 			SidePanel: "app/components/SidePanel.jsx",
 			SearchForm: "app/components/SearchForm.jsx",
-			SearchResults: "app/components/SearchResults.jsx",
+			TextList: "app/components/TextList.jsx",
+			CodexList: "app/components/CodexList.jsx",
+			ExpressionInfo: "app/components/ExpressionInfo.jsx",
 			sctaData: "app/api/sctaData.jsx",
 			MiradorPanel: "app/components/MiradorPanel.jsx",
 			//Mirador: "public/mirador/mirador.js",
@@ -49,7 +51,7 @@ module.exports = {
 		]
 	},
 	devtool: 'cheap-module-eval-source-map'
-	
+
 	// "cheap-source-map" can be used instead of above
 	// which currently has bugs
 	// buggy warning can also be avoided with filter in console.
