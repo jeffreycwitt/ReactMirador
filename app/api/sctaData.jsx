@@ -4,6 +4,7 @@ const SCTA_SPARQL_ENDPOINT = "http://sparql-staging.scta.info/ds/query";
 
 
 
+
 module.exports = {
 	getData: function(query){
 
