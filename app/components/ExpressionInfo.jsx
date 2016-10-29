@@ -34,9 +34,8 @@ var ExpressionInfo = React.createClass({
 			resp.results.bindings.forEach(function(result){
 				var expression_child = result.expression_child.value;
 				var child_shortid = expression_child.split("/").pop(-1);
-				console.log("ex child", expression_child);
-					expression_children.push(<li><Link to={child_shortid}>{expression_child}</Link></li>);
-			});
+				expression_children.push(<li><Link to={child_shortid}>{expression_child}</Link></li>);
+				});
 			_this.setState({
 				expressionChildren: expression_children
 			});
@@ -48,14 +47,13 @@ var ExpressionInfo = React.createClass({
 		_this.setExpressionResults(expressionInfoQuery(_this.props.expressionid));
 	},
 	//TODO: basically works, but I the WillUpdate or DidUpdate is causing a strange infinite loop
-	//componentWillUpdate: function(){
+	//componentDidUpdate: function(){
 		//var _this = this;
 		//_this.setExpressionResults(expressionInfoQuery(_this.props.expressionid));
 	//},
 
 	render: function(){
 		var _this = this;
-		console.log("children", this.state.expressionChildren)
 		return(
 			<div>
 				<p>Text {this.state.expressionTitle}</p>

@@ -34,23 +34,26 @@ p {
 	opacity: 1;
 	z-index: 1;
 }
-li{
-	padding: 2.5px;
-	color: black;
-}
+
 ul.text-results{
 	padding: 20px;
 }
 ul.text-results li {
 	list-style: none;
+	padding: 2.5px;
+	color: black;
 }
 ul.text-results li ul li {
+	padding: 2.5px;
+	color: black;
 }
 ul.codices-results{
 	padding: 20px;
 }
 ul.codices-results li {
 		list-style: none;
+		padding: 2.5px;
+		color: black;
 }
 
 li.expression-link {

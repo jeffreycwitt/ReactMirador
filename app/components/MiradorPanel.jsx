@@ -26,6 +26,7 @@ var MiradorPanel = React.createClass({
 						"buildPath": "/mirador/",
 		      	"data" : [
 		      		{manifestUri : "http://scta.info/iiif/codex/" + _this.props.expressionid + "/manifest"}
+							//{manifestUri : "http://localhost:3000/iiif/codex/" + _this.props.expressionid + "/manifest"}
 		      	]
 		      });
 		    });

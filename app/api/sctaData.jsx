@@ -1,6 +1,7 @@
 var axios = require("axios");
 
-const SCTA_SPARQL_ENDPOINT = "http://sparql-staging.scta.info/ds/query";
+//const SCTA_SPARQL_ENDPOINT = "http://sparql-staging.scta.info/ds/query";
+const SCTA_SPARQL_ENDPOINT = "http://localhost:3030/ds/query";
 
 
 
