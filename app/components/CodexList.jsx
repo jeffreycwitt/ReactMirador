@@ -28,7 +28,7 @@ var CodexList = React.createClass({
 				var manifestUrl = "http://scta.info/iiif/codex/" + codex_shortid + "/manifest?manifest=http://scta.info/iiif/codex/" + codex_shortid + "/manifest";
 				//var manifestUrl = "/default_target?manifest=http://scta.info/iiif/codex/" + codex_shortid + "/manifest";
 				displayResults.push(
-						<li className="codex-link">
+						<li className="codex-link" key={codex_shortid}>
 							<Link to={{ pathname: codex_shortid, query: { type: 'manifest' } }}>{codex_title}</Link>
 							<a href={manifestUrl} id="IIIF-drag-and-drop" alt="IIIF Drag-n-drop" title="Drag and Drop this icon into Mirador"> - <img height="10" src="http://www.e-codices.unifr.ch/img/logo-iiif-34x30.png" alt="IIIF Drag-n-drop"/></a>
 						</li>

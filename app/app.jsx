@@ -17,8 +17,7 @@ require('style!css!sass!applicationStyles')
 
 ReactDOM.render(
 	<Router history={hashHistory}>
-		<Route path="/:expressionid" component={Main}/>
-		<Route path="/" component={Main} expressionid="none"/>
+		<Route path="/(:expressionid)" component={Main}/>
 	</Router>,
 	document.getElementById('app')
 );

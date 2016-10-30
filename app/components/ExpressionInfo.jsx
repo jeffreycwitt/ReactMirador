@@ -19,38 +19,46 @@ var ExpressionInfo = React.createClass({
 	getInitialState: function(){
 		return {
 			expressionTitle: undefined,
-			expressionChildren: undefined,
+			expressionChildren: undefined
 		}
 	},
 	setExpressionResults: function(query){
 		var _this = this;
+		//clear out old state
+		_this.setState({
+			expressionTitle: undefined,
+			expressionChildren: undefined
+		});
+
 		sctaData.getData(query).then(function(resp){
 
 			var expression_title = resp.results.bindings[0].expression_title.value
-			_this.setState({
-				expressionTitle: expression_title
-			});
 			var expression_children = []
 			resp.results.bindings.forEach(function(result){
 				var expression_child = result.expression_child.value;
 				var child_shortid = expression_child.split("/").pop(-1);
-				expression_children.push(<li><Link to={child_shortid}>{expression_child}</Link></li>);
+				expression_children.push(<li key={child_shortid}><Link to={child_shortid}>{expression_child}</Link></li>);
 				});
 			_this.setState({
-				expressionChildren: expression_children
+				expressionChildren: expression_children,
+				expressionTitle: expression_title
 			});
 		});
 	},
 
-	componentWillMount: function(){
+	componentDidMount: function(){
 		var _this = this;
-		_this.setExpressionResults(expressionInfoQuery(_this.props.expressionid));
+			_this.setExpressionResults(expressionInfoQuery(_this.props.expressionid));
 	},
+	//use this for clean up if someone tries to fire a different function
+	//componentWillUnmount: function(){
+		//this.serverRequest.abort()
+	//}
 	//TODO: basically works, but I the WillUpdate or DidUpdate is causing a strange infinite loop
-	//componentDidUpdate: function(){
-		//var _this = this;
-		//_this.setExpressionResults(expressionInfoQuery(_this.props.expressionid));
-	//},
+	componentWillReceiveProps: function(nextProps){
+		var _this = this;
+		_this.setExpressionResults(expressionInfoQuery(nextProps.expressionid));
+	},
 
 	render: function(){
 		var _this = this;

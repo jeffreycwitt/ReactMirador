@@ -8,9 +8,14 @@ var SidePanel = React.createClass({
 
 
 	render: function(){
-		return(
+
+	return(
 			<div>
-				<ExpressionInfo expressionid={this.props.expressionid}/>
+				{function(id) {
+					if (id){
+						return (<ExpressionInfo expressionid={id}/>)
+					}
+				}(this.props.expressionid)}
 				<TextList/>
 				<CodexList/>
 			</div>

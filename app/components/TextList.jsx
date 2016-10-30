@@ -35,7 +35,7 @@ var TextList = React.createClass({
 						var shortid = bindings[i].topLevelExpression.value.split("/").pop(-1);
 						var collectionUrl = "http://scta.info/iiif/" + shortid + "/collection?collection=http://scta.info/iiif/" + shortid + "/collection"
 						titles.push(
-							<li className="expression-link">
+							<li className="expression-link" key={shortid}>
 								<Link to={shortid}>{bindings[i].topLevelExpressionTitle.value}</Link>
 									<a href={collectionUrl} title="Drag and Drop this icon into Mirador"> - <img height="10" src="http://www.e-codices.unifr.ch/img/logo-iiif-34x30.png" alt="IIIF Drag-n-drop"/>
 									</a>
@@ -58,7 +58,7 @@ var TextList = React.createClass({
 				if (currentAuthor != authorid){
 
 					displayResults.push(
-						<li>
+						<li key={authorid}>
 							<Link to={authorid}>{author_title}</Link><a href={authorCollectionUrl} title="Drag and Drop this icon into Mirador"> - <img height="10" src="http://www.e-codices.unifr.ch/img/logo-iiif-34x30.png" alt="IIIF Drag-n-drop"/>
 							</a>
 							<ul>
