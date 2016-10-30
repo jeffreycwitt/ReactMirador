@@ -40,6 +40,7 @@ var MiradorPanel = React.createClass({
 						"buildPath": "/mirador/",
 		      	"data" : [
 		      		{collectionUri : "http://scta.info/iiif/" + _this.props.expressionid + "/collection"}
+							//{collectionUri : "http://localhost:3000/iiif/" + _this.props.expressionid + "/collection"}
 		      	]
 		      });
 		    });

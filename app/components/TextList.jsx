@@ -53,11 +53,14 @@ var TextList = React.createClass({
 				var shortid = result.topLevelExpression.value.split("/").pop(-1);
 				var shortid_url = "/" + shortid
 				var collectionUrl = "/default_target?collection=http://scta.info/iiif/" + shortid + "/collection";
+				var authorCollectionUrl = "/default_target?collection=http://scta.info/iiif/" + authorid + "/collection";
 				// conditional used to filter out repeat entries for author of multiple works
 				if (currentAuthor != authorid){
+
 					displayResults.push(
 						<li>
-							{author_title}
+							<Link to={authorid}>{author_title}</Link><a href={authorCollectionUrl} title="Drag and Drop this icon into Mirador"> - <img height="10" src="http://www.e-codices.unifr.ch/img/logo-iiif-34x30.png" alt="IIIF Drag-n-drop"/>
+							</a>
 							<ul>
 								{getTitles(authorid, resp)}
 							</ul>
