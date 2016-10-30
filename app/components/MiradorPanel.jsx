@@ -3,17 +3,31 @@ var React = require("react");
 var ReactDOM = require("react-dom");
 
 var MiradorPanel = React.createClass({
+	getInitialState: function(){
+		return {
+			width: this.props.width
+		}
+	},
 	componentWillMount: function(){
 		var _this = this;
 		_this.createMiradorInstance();
 
 	},
-
+	setWidth: function(width){
+		this.setState({width: width})
+	},
 	componentDidUpdate: function(){
+		var width = this.state.width;
 		var $node = $(ReactDOM.findDOMNode(this))
 		$node.children('div').remove();
-		$node.append('<div id="viewer"></div>');
+		$node.append('<div style="width:' + width + '" id="viewer"></div>');
 		this.createMiradorInstance(this.props.type);
+	},
+	componentWillReceiveProps: function(nextProps){
+		var width = nextProps.width;
+		//var width = this.props.width;
+		console.log(width);
+		this.setWidth(width);
 	},
 	createMiradorInstance: function(type){
 		var _this = this;
@@ -49,9 +63,10 @@ var MiradorPanel = React.createClass({
 
 
 	render: function(){
+		var divStyle = {width: this.state.width}
 		return(
 			<div>
-				<div id="viewer"></div>
+				<div style={divStyle} id="viewer"></div>
 			</div>
 
 

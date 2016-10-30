@@ -50,22 +50,21 @@ var ExpressionInfo = React.createClass({
 		var _this = this;
 			_this.setExpressionResults(expressionInfoQuery(_this.props.expressionid));
 	},
-	//use this for clean up if someone tries to fire a different function
-	//componentWillUnmount: function(){
-		//this.serverRequest.abort()
-	//}
-	//TODO: basically works, but I the WillUpdate or DidUpdate is causing a strange infinite loop
 	componentWillReceiveProps: function(nextProps){
 		var _this = this;
-		_this.setExpressionResults(expressionInfoQuery(nextProps.expressionid));
+		if (nextProps.expressionid !== this.props.expressionid){
+			_this.setExpressionResults(expressionInfoQuery(nextProps.expressionid));
+		}
 	},
 
 	render: function(){
 		var _this = this;
 		return(
 			<div>
-				<p>Text {this.state.expressionTitle}</p>
-				<ul>{this.state.expressionChildren}</ul>
+				<ul className="expressioninfo-results">
+					<h1>{this.state.expressionTitle}</h1>
+					{this.state.expressionChildren}
+				</ul>
 			</div>
 		)
 	}
