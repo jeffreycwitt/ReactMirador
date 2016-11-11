@@ -34,11 +34,11 @@ var TextList = React.createClass({
 					if (bindings[i].author.value.split("/").pop(-1) === authorid){
 						var shortid = bindings[i].topLevelExpression.value.split("/").pop(-1);
 						var collectionUrl = "http://scta.info/iiif/" + shortid + "/collection?collection=http://scta.info/iiif/" + shortid + "/collection"
+						var LbpUrl = "http://scta.lombardpress.org/text/questions/" + shortid
 						titles.push(
 							<li className="expression-link" key={shortid}>
 								<Link to={shortid}>{bindings[i].topLevelExpressionTitle.value}</Link>
-									<a href={collectionUrl} title="Drag and Drop this icon into Mirador"> - <img height="10" src="http://www.e-codices.unifr.ch/img/logo-iiif-34x30.png" alt="IIIF Drag-n-drop"/>
-									</a>
+									<a href={collectionUrl} title="Drag and Drop this icon into Mirador"> - <img height="10" src="http://www.e-codices.unifr.ch/img/logo-iiif-34x30.png" alt="IIIF Drag-n-drop"/></a> - <a href={LbpUrl} target="_blank" style={{"color": "blue"}}>LBP</a>
 							</li>
 						)
 					}
