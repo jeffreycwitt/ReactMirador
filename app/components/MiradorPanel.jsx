@@ -10,7 +10,7 @@ var MiradorPanel = React.createClass({
 	},
 	componentWillMount: function(){
 		var _this = this;
-		_this.createMiradorInstance();
+		_this.createMiradorInstance(this.props.type);
 
 	},
 	setWidth: function(width){
@@ -31,7 +31,7 @@ var MiradorPanel = React.createClass({
 	},
 	createMiradorInstance: function(type){
 		var _this = this;
-		if (type == "manifest"){
+		if (type === "manifest"){
 			$(function(){
 					Mirador({
 			      	"id": "viewer",

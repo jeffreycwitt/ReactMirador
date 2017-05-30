@@ -22,7 +22,7 @@ var Main = React.createClass({
 		var width = this.state.sidePanelStatus === 'open' ? "80%" : "95%"
 		var sidePanelWidth = this.state.sidePanelStatus === 'open' ? { width: '20%' } : { display: 'none' }
 		var buttonStyle = this.state.sidePanelStatus !== 'open' ? { width: 'auto' } : { display: 'none' }
-
+		console.log(type);
 		//<button onClick={this.hideSidePanel}>Hide</button>
 		return(
 

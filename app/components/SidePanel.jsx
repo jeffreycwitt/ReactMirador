@@ -11,11 +11,7 @@ var SidePanel = React.createClass({
 
 	return(
 			<div>
-				{function(id) {
-					if (id){
-						return (<ExpressionInfo expressionid={id}/>)
-					}
-				}(this.props.expressionid)}
+
 				<TextList/>
 				<CodexList/>
 			</div>
@@ -26,3 +22,12 @@ var SidePanel = React.createClass({
 module.exports = SidePanel;
 
 //<SearchForm/>
+
+
+//{function(id) {
+	//if (id){
+		//return (<ExpressionInfo expressionid={id}/>)
+//	}
+//}
+//	(this.props.expressionid)
+//}
